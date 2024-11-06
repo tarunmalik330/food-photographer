@@ -116,7 +116,7 @@ const ParticlesP5 = () => {
             attraction.mult(strength);
             this.velocity.add(attraction);
           }
-          this.opacity = p5.min(this.opacity + 2, 255);
+          this.opacity = p5.min(this.opacity + 3, 255);
         }
 
         this.x += this.velocity.x;
