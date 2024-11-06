@@ -10,10 +10,10 @@ const Hero = () => {
       </div>
       <Nav />
       <div className="container xl:max-w-[1140px] mx-auto px-4 flex justify-center items-center flex-grow flex-col">
-        <h1 className="text-custom-xs text-white text-center font-semibold leading-normal tracking-widest font-cinzel">
+        <h1 className="xl:text-custom-xs lg:text-6xl md:text-5xl text-4xl text-white text-center font-semibold leading-normal tracking-widest font-cinzel">
           THE ART OF FOOD
         </h1>
-        <p className="text-white font-cinzel font-normal tracking-[4px] text-2xl leading-normal mb-9">
+        <p className="text-white font-cinzel font-normal tracking-[4px] md:text-2xl text-lg leading-normal mb-9">
           PHOTOGRAPHY
         </p>
         <button className="text-white font-semibold font-cinzel text-lg py-3 px-9 rounded-lg border border-solid border-white hover:bg-white transition-colors ease-linear duration-300 bg-transparent hover:text-lime-500">
