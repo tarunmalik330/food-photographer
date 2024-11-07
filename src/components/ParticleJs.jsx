@@ -15,7 +15,7 @@ const ParticlesP5 = () => {
   const canvasRef = useRef(null);
   const particlesCount = useParticlesCount();
   const [p5Instance, setP5Instance] = useState(null);
-  const [hovering, setHovering] = useState(false); 
+  const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
     const loadP5 = async () => {
@@ -50,11 +50,12 @@ const ParticlesP5 = () => {
 
     p5.draw = () => {
       p5.clear();
-      if (hovering) {
-        p5.background(0, 100, 255);
-      } else {
-        p5.background(30);
-      }
+      // if (hovering) {
+      //   p5.background(30, 100, 255);
+      // } else {
+      //   p5.background(30);
+      // }
+      p5.background(255, 255, 255, 0);
 
       mousePos.set(p5.mouseX, p5.mouseY);
 
@@ -75,7 +76,7 @@ const ParticlesP5 = () => {
           );
 
           if (distance < 130) {
-            p5.stroke(255, 255, 255, 70);
+            p5.stroke(255, 255, 255, 40);
             p5.strokeWeight(1);
             p5.line(
               particles[i].x,
@@ -96,13 +97,13 @@ const ParticlesP5 = () => {
           p5.random(-0.5, 0.5),
           p5.random(-0.5, 0.5)
         );
-        this.radius = p5.random(3, 5);
-        this.opacity = 255;
+        this.radius = p5.random(4, 7);
+        this.opacity = 500;
       }
 
       update(mousePos, hovering) {
         if (hovering) {
-          this.opacity = Math.max(0, this.opacity - 20);
+          this.opacity = Math.max(0, this.opacity - 100);
         } else {
           const attraction = p5.createVector(
             this.x - mousePos.x,
@@ -131,13 +132,13 @@ const ParticlesP5 = () => {
       }
 
       display() {
-        p5.fill(255, 255, 255, this.opacity);
+        p5.fill(255, 255, 255, 255, this.opacity);
         p5.circle(this.x, this.y, this.radius);
       }
     }
   };
   useEffect(() => {
-    const handleMouseMove = throttle(() => setHovering(true), 50);
+    const handleMouseMove = throttle(() => setHovering(true), 70);
     const handleMouseOut = () => setHovering(false);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseout", handleMouseOut);
@@ -154,7 +155,7 @@ const ParticlesP5 = () => {
 const useParticlesCount = () => {
   const getParticlesCount = () => {
     const screenWidth = window.innerWidth;
-    return screenWidth <= 767 ? 30 : 100;
+    return screenWidth <= 767 ? 60 : 200;
   };
 
   const [particlesCount, setParticlesCount] = useState(getParticlesCount());

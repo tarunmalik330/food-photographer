@@ -4,7 +4,7 @@ import ParticlesP5 from "./ParticleJs";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen bg-lime-500 flex flex-col relative z-10 overflow-hidden">
+    <div className="min-h-screen bg-red-900 flex flex-col relative z-10 overflow-hidden">
       <div className="absolute inset-0 opacity-30 z-[-1] !w-full">
         <ParticlesP5 />
       </div>
