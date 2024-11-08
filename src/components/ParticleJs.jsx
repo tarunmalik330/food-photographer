@@ -113,7 +113,7 @@ const ParticlesP5 = () => {
           attraction.normalize();
 
           if (distance < 100) {
-            const strength = p5.map(distance, 0, 100, 0.5, 0);
+            const strength = p5.map(distance, 0, 100, 1, 0);
             attraction.mult(strength);
             this.velocity.add(attraction);
           }
@@ -138,7 +138,7 @@ const ParticlesP5 = () => {
     }
   };
   useEffect(() => {
-    const handleMouseMove = throttle(() => setHovering(true), 70);
+    const handleMouseMove = throttle(() => setHovering(true), 30);
     const handleMouseOut = () => setHovering(false);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseout", handleMouseOut);
@@ -155,7 +155,7 @@ const ParticlesP5 = () => {
 const useParticlesCount = () => {
   const getParticlesCount = () => {
     const screenWidth = window.innerWidth;
-    return screenWidth <= 767 ? 60 : 200;
+    return screenWidth <= 767 ? 60 : 500;
   };
 
   const [particlesCount, setParticlesCount] = useState(getParticlesCount());
